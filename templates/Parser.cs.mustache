@@ -20,12 +20,12 @@ namespace GenericParsers
         public static IParser GetParser(Type type)
         {
             IParser parser;
-            if (parsers.TryGetValue(typeof(T), out parser))
+            if (parsers.TryGetValue(type, out parser))
             {
                 return parser;
             }
 
-            string error = string.Format("There is no default parser for the type '#{0}'.", typeof(T));
+            string error = string.Format("There is no default parser for the type '#{0}'.", type);
             throw new ArgumentException(error);
         }
 
