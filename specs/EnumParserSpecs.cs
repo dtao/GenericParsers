@@ -16,6 +16,24 @@ namespace GenericParsers.Specs
         }
 
         [Test]
+        public void ParseParsesValidInput()
+        {
+            DateTimeKind value = parser.Parse("Local");
+            Assert.That(value, Is.EqualTo(DateTimeKind.Local));
+        }
+
+        [Test]
+        public void ParseThrowsExceptionOnInvalidInput()
+        {
+            TestDelegate attempt = () =>
+            {
+                parser.Parse("foo");
+            };
+
+            Assert.That(attempt, Throws.Exception);
+        }
+
+        [Test]
         public void TryParseWorksForValidInput()
         {
             string input = "Local";
