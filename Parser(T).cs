@@ -4,11 +4,18 @@ namespace GenericParsers
 {
     public abstract class Parser<T> : IParser, IParser<T>
     {
-        public static IParser<T> Default { get; private set; }
+        private static IParser<T> instance;
 
-        static Parser()
+        public static IParser<T> Default
         {
-            Default = Parser.GetParser<T>();
+            get
+            {
+                if (instance == null)
+                {
+                    instance = Parser.GetParser<T>();
+                }
+                return instance;
+            }
         }
 
         public abstract T Parse(string input);
