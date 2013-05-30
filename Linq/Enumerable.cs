@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GenericParsers
+namespace GenericParsers.Linq
 {
-    public static class Linq
+    public static class Enumerable
     {
         public static IEnumerable<T> ParseAll<T>(this IEnumerable<string> values)
         {

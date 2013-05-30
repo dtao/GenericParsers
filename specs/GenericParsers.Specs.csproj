@@ -41,7 +41,7 @@
     <Compile Include="TypeParserSpecs.cs" />
     <Compile Include="Int32ParserSpecs.cs" />
     <Compile Include="EnumParserSpecs.cs" />
-    <Compile Include="LinqSpecs.cs" />
+    <Compile Include="Linq\EnumerableSpecs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -49,5 +49,8 @@
       <Project>{8BBFA4B2-F505-4626-BDF6-30D4DFE3DDB3}</Project>
       <Name>GenericParsers</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Linq\" />
   </ItemGroup>
 </Project>

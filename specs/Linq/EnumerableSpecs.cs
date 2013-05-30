@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
-namespace GenericParsers.Specs
+namespace GenericParsers.Linq.Specs
 {
     [TestFixture]
-    public class LinqSpecs
+    public class EnumerableSpecs
     {
         [Test]
         public void ParseAllParsesAllValidInputs()
