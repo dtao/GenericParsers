@@ -44,7 +44,7 @@ namespace GenericParsers
                 return parsers[type] = CreateEnumParser(type);
             }
 
-            string error = string.Format("There is no default parser for the type '#{0}'.", type);
+            string error = string.Format("There is no default parser for the type '{0}'.", type);
             throw new ArgumentException(error);
         }
 
