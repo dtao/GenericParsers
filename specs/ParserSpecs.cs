@@ -1,6 +1,5 @@
 using System;
 
-using GenericParsers;
 using NUnit.Framework;
 
 namespace GenericParsers.Specs
@@ -11,18 +10,14 @@ namespace GenericParsers.Specs
         [Test]
         public void ProvidesDefaultParsersForBasicTypes()
         {
-            string input = "123";
-            int result;
-
-            Parser<int>.Default.TryParse(input, out result);
-            Assert.That(result, Is.EqualTo(123));
+            Assert.That(Parser<int>.Default, Is.InstanceOf(typeof(IParser<int>)));
         }
 
         [Test]
         public void ProvidesNonGenericInterface()
         {
             IParser parser = Parser.GetParser(typeof(bool));
-            Assert.That(parser, Is.InstanceOf(typeof(Parser<bool>)));
+            Assert.That(parser, Is.InstanceOf(typeof(IParser<bool>)));
         }
 
         [Test]
@@ -35,23 +30,15 @@ namespace GenericParsers.Specs
         }
 
         [Test]
-        public void ProvidesParserForEnumTypes()
+        public void ProvidesParsersForEnumTypes()
         {
-            string input = "Local";
-            DateTimeKind result;
-
-            Parser<DateTimeKind>.Default.TryParse(input, out result);
-            Assert.That(result, Is.EqualTo(DateTimeKind.Local));
+            Assert.That(Parser<DateTimeKind>.Default, Is.InstanceOf(typeof(EnumParser<DateTimeKind>)));
         }
 
         [Test]
-        public void ProvidesParserForTypeType()
+        public void ProvidesAParserForTypeType()
         {
-            string input = "System.Random";
-            Type result;
-
-            Parser<Type>.Default.TryParse(input, out result);
-            Assert.That(result, Is.EqualTo(typeof(Random)));
+            Assert.That(Parser<Type>.Default, Is.InstanceOf(typeof(TypeParser)));
         }
     }
 }
