@@ -19,6 +19,13 @@ namespace GenericParsers.Specs
         }
 
         [Test]
+        public void ProvidesNonGenericInterface()
+        {
+            IParser parser = Parser.GetParser(typeof(bool));
+            Assert.That(parser, Is.InstanceOf(typeof(Parser<bool>)));
+        }
+
+        [Test]
         public void AlwaysReturnsTheSameInstanceForEachType()
         {
             IParser<double> first = Parser<double>.Default;
@@ -35,6 +42,16 @@ namespace GenericParsers.Specs
 
             Parser<DateTimeKind>.Default.TryParse(input, out result);
             Assert.That(result, Is.EqualTo(DateTimeKind.Local));
+        }
+
+        [Test]
+        public void ProvidesParserForTypeType()
+        {
+            string input = "System.Random";
+            Type result;
+
+            Parser<Type>.Default.TryParse(input, out result);
+            Assert.That(result, Is.EqualTo(typeof(Random)));
         }
     }
 }
