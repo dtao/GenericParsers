@@ -35,6 +35,11 @@ namespace GenericParsers
                 return parser;
             }
 
+            if (type.IsEnum)
+            {
+                return parsers[type] = CreateEnumParser(type);
+            }
+
             string error = string.Format("There is no default parser for the type '#{0}'.", type);
             throw new ArgumentException(error);
         }
@@ -42,6 +47,13 @@ namespace GenericParsers
         public static IParser<T> GetParser<T>()
         {
             return (IParser<T>)GetParser(typeof(T));
+        }
+
+        static IParser CreateEnumParser(Type type)
+        {
+            Type blankType = typeof(EnumParser<>);
+            Type genericType = blankType.MakeGenericType(type);
+            return (IParser)Activator.CreateInstance(genericType);
         }
     }
 }
