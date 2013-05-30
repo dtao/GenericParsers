@@ -1,0 +1,17 @@
+using System;
+
+namespace GenericParsers
+{
+    sealed class {{type}}Parser : Parser<{{name}}>
+    {
+        public override {{name}} Parse(string input)
+        {
+            return {{name}}.Parse(input);
+        }
+
+        public override bool TryParse(string input, out {{name}} result)
+        {
+            return {{name}}.TryParse(input, out result);
+        }
+    }
+}

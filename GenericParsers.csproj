@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8BBFA4B2-F505-4626-BDF6-30D4DFE3DDB3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GenericParsers</RootNamespace>
+    <AssemblyName>GenericParsers</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="IParser%28T%29.cs" />
+    <Compile Include="IParser.cs" />
+    <Compile Include="Parser%28T%29.cs" />
+    <Compile Include="BooleanParser.cs" />
+    <Compile Include="ByteParser.cs" />
+    <Compile Include="DecimalParser.cs" />
+    <Compile Include="DoubleParser.cs" />
+    <Compile Include="Int16Parser.cs" />
+    <Compile Include="Int32Parser.cs" />
+    <Compile Include="Int64Parser.cs" />
+    <Compile Include="SingleParser.cs" />
+    <Compile Include="UInt16Parser.cs" />
+    <Compile Include="UInt64Parser.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="UInt32Parser.cs" />
+    <Compile Include="DateTimeParser.cs" />
+    <Compile Include="TimeSpanParser.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

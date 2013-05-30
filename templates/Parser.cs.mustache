@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+
+namespace GenericParsers
+{
+    public static class Parser
+    {
+        static readonly Dictionary<Type, IParser> parsers;
+
+        static Parser()
+        {
+            parsers = new Dictionary<Type, IParser>
+            {
+                {{# types}}
+                { typeof({{.}}), new {{.}}Parser() },
+                {{/ types}}
+            };
+        }
+
+        public static IParser GetParser(Type type)
+        {
+            IParser parser;
+            if (parsers.TryGetValue(typeof(T), out parser))
+            {
+                return parser;
+            }
+
+            string error = string.Format("There is no default parser for the type '#{0}'.", typeof(T));
+            throw new ArgumentException(error);
+        }
+
+        public static IParser<T> GetParser<T>()
+        {
+            return (IParser<T>)GetParser(typeof(T));
+        }
+    }
+}
