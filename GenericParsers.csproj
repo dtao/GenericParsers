@@ -51,6 +51,7 @@
     <Compile Include="DateTimeParser.cs" />
     <Compile Include="TimeSpanParser.cs" />
     <Compile Include="EnumParser%28T%29.cs" />
+    <Compile Include="TypeParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

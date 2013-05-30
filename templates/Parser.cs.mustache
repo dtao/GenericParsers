@@ -11,9 +11,13 @@ namespace GenericParsers
         {
             parsers = new Dictionary<Type, IParser>
             {
+                // generated parsers
                 {{# types}}
                 { typeof({{.}}), new {{.}}Parser() },
                 {{/ types}}
+
+                // hand-written parser(s)
+                { typeof(Type), new TypeParser() }
             };
         }
 

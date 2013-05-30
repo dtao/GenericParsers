@@ -11,6 +11,7 @@ namespace GenericParsers
         {
             parsers = new Dictionary<Type, IParser>
             {
+                // generated parsers
                 { typeof(Boolean), new BooleanParser() },
                 { typeof(Byte), new ByteParser() },
                 { typeof(Int16), new Int16Parser() },
@@ -24,6 +25,9 @@ namespace GenericParsers
                 { typeof(Decimal), new DecimalParser() },
                 { typeof(DateTime), new DateTimeParser() },
                 { typeof(TimeSpan), new TimeSpanParser() },
+
+                // hand-written parser(s)
+                { typeof(Type), new TypeParser() }
             };
         }
 
