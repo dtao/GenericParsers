@@ -27,9 +27,9 @@ The Generic Parsers library gives you the same thing for its own `IParser<T>` in
 IParser<T> parser = Parser<T>.Default;
 
 // Examples:
-Parser<int>.Parse("123"); // 123
-Parser<double>.Parse("3.14"); // 3.14
-Parser<bool>.Parse("True"); // true
+Parser<int>.Default.Parse("123"); // 123
+Parser<double>.Default.Parse("3.14"); // 3.14
+Parser<bool>.Default.Parse("True"); // true
 ```
 
 Implementation
